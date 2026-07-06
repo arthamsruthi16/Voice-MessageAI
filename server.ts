@@ -1,14 +1,15 @@
 import express from 'express';
 import { createServer as createViteServer } from 'vite';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import { GoogleGenAI, Type } from '@google/genai';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// CJS-safe root path — works whether bundled to .cjs or run directly with tsx.
+// Render/npm always run `node dist/server.cjs` from the project root, so
+// process.cwd() reliably points at the project root in both dev and prod.
+const projectRoot = process.cwd();
 
 async function startServer() {
   const app = express();
@@ -114,9 +115,10 @@ async function startServer() {
 
   // Dev vs Prod Asset Delivery
   if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('dist'));
+    const distDir = path.join(projectRoot, 'dist');
+    app.use(express.static(distDir));
     app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname, 'index.html'));
+      res.sendFile(path.join(distDir, 'index.html'));
     });
   } else {
     const vite = await createViteServer({
@@ -126,7 +128,7 @@ async function startServer() {
     app.use(vite.middlewares);
   }
 
-  const port = 3000;
+  const port = process.env.PORT ? Number(process.env.PORT) : 3000;
   app.listen(port, '0.0.0.0', () => {
     console.log(`Server started in ${process.env.NODE_ENV || 'development'} mode on port ${port}`);
   });
