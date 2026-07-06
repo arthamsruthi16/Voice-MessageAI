@@ -1,4 +1,4 @@
-# 🎙️ Voice-MessageAI Converter
+# 🎙️ Voice-MessageAI
 
 An AI-powered Voice-to-Text Converter that accurately transcribes speech into text with support for multiple languages and customizable output formats. The application provides both real-time voice recording and audio file upload, making speech transcription fast, flexible, and user-friendly.
 
