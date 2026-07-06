@@ -1,0 +1,6 @@
+{
+  "name": "Voice to Text Message Converter",
+  "description": "Convert voice recordings and uploaded audio files into polished text messages using Gemini AI.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
