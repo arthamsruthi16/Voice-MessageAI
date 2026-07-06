@@ -1,4 +1,4 @@
-# 🎙️ Voice-to-Text Converter
+# 🎙️ Voice-MessageAI Converter
 
 An AI-powered Voice-to-Text Converter that accurately transcribes speech into text with support for multiple languages and customizable output formats. The application provides both real-time voice recording and audio file upload, making speech transcription fast, flexible, and user-friendly.
 
@@ -80,7 +80,7 @@ The AI understands user instructions and formats the output accordingly.
 ## 📂 Project Structure
 
 ```
-Voice-to-Text-Converter/
+Voice-MessageAI/
 │
 ├── public/
 ├── src/
@@ -98,13 +98,13 @@ Voice-to-Text-Converter/
 Clone the repository
 
 ```bash
-git clone https://github.com/your-username/Voice-to-Text-Converter.git
+git clone https://github.com/your-username/Voice-MessageAI.git
 ```
 
 Navigate into the project
 
 ```bash
-cd Voice-to-Text-Converter
+cd Voice-MessageAI
 ```
 
 Install dependencies
